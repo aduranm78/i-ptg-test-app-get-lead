@@ -4,6 +4,7 @@ package com.redhat;
 //import com.redhat.dto.CustomerSuccess;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.netty.http.NettyHttpMessage;
 import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.stereotype.Component;
 import org.apache.camel.LoggingLevel;
@@ -52,19 +53,25 @@ public class Routes extends RouteBuilder {
       .process(new Processor() {
         @Override
         public void process(Exchange exchange) throws Exception {
-          String authHeader = OAuthSign.getAuthHeader(NSUri,"GET"); 
+          Message inMessage = Exchange.getIn();
+          String query = inMessage.getHeader(Exchange.HTTP_QUERY, String.class);
+          String newNSUri = NSUri + "&" +query;
+          System.out.println("newNSUri:"+ newNSUri);
+          query = query + "&bridgeEndpoint=true&throwExceptionOnFailure=false";
+          String authHeader = OAuthSign.getAuthHeader(newNSUri,"GET"); 
           exchange.getMessage().setHeader("Authorization", authHeader);
           System.out.println("header process:"+authHeader);
-          //exchange.getMessage().setHeader(Exchange.HTTP_QUERY, "bridgeEndpoint=true&throwExceptionOnFailure=false");
+          System.out.println("header query:"+query);
+          exchange.getMessage().setHeader(Exchange.HTTP_QUERY, query);
           //exchange.getMessage().setHeader(Exchange.HTTP_URI, NSUri);
         }
       })
       //.setHeader("backend", simple("{{redhat.backend}}"))
+      
       .to("log:DEBUG?showBody=true&showHeaders=true")
-      .toD("https://5298967-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=580&deploy=2&bridgeEndpoint=true&throwExceptionOnFailure=false")
+      .toD("https://5298967-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=580&deploy=2")
       .streamCaching()
       .log(LoggingLevel.INFO, "${in.headers.CamelFileName}")
-      //.toD("https://5298967-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?bridgeEndpoint=true&throwExceptionOnFailure=false")
       .to("log:DEBUG?showBody=true&showHeaders=true");
       
 //      .choice()

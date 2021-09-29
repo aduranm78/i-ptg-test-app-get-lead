@@ -3,7 +3,9 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
+    fabric8.io/git-commit: a2643c5fe00f4617b68cac9ec4ff8db212353c66
     fabric8.io/iconUrl: img/icons/camel.svg
+    fabric8.io/git-branch: main
   labels:
     expose: "true"
     app: i-ptg-test-get-lead

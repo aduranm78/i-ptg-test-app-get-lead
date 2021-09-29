@@ -6,7 +6,9 @@ items:
   kind: Service
   metadata:
     annotations:
+      fabric8.io/git-commit: a2643c5fe00f4617b68cac9ec4ff8db212353c66
       fabric8.io/iconUrl: img/icons/camel.svg
+      fabric8.io/git-branch: main
     labels:
       expose: "true"
       app: i-ptg-test-get-lead
@@ -28,7 +30,9 @@ items:
   kind: Deployment
   metadata:
     annotations:
+      fabric8.io/git-commit: a2643c5fe00f4617b68cac9ec4ff8db212353c66
       fabric8.io/iconUrl: img/icons/camel.svg
+      fabric8.io/git-branch: main
       fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=i-ptg-test-get-lead&var-version=0.1.0
     labels:
       app: i-ptg-test-get-lead
@@ -47,7 +51,9 @@ items:
     template:
       metadata:
         annotations:
+          fabric8.io/git-commit: a2643c5fe00f4617b68cac9ec4ff8db212353c66
           fabric8.io/iconUrl: img/icons/camel.svg
+          fabric8.io/git-branch: main
           fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=i-ptg-test-get-lead&var-version=0.1.0
         labels:
           app: i-ptg-test-get-lead
