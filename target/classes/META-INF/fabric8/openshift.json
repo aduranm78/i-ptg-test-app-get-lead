@@ -6,7 +6,7 @@
     "kind" : "Service",
     "metadata" : {
       "annotations" : {
-        "fabric8.io/git-commit" : "a2643c5fe00f4617b68cac9ec4ff8db212353c66",
+        "fabric8.io/git-commit" : "8df73b037f64525804ac1f4dfbd8b13a51e4cc21",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
         "fabric8.io/git-branch" : "main"
       },
@@ -37,7 +37,7 @@
     "kind" : "DeploymentConfig",
     "metadata" : {
       "annotations" : {
-        "fabric8.io/git-commit" : "a2643c5fe00f4617b68cac9ec4ff8db212353c66",
+        "fabric8.io/git-commit" : "8df73b037f64525804ac1f4dfbd8b13a51e4cc21",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
         "fabric8.io/git-branch" : "main",
         "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=i-ptg-test-get-lead&var-version=0.1.0"
@@ -67,7 +67,7 @@
       "template" : {
         "metadata" : {
           "annotations" : {
-            "fabric8.io/git-commit" : "a2643c5fe00f4617b68cac9ec4ff8db212353c66",
+            "fabric8.io/git-commit" : "8df73b037f64525804ac1f4dfbd8b13a51e4cc21",
             "fabric8.io/iconUrl" : "img/icons/camel.svg",
             "fabric8.io/git-branch" : "main",
             "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=i-ptg-test-get-lead&var-version=0.1.0"
